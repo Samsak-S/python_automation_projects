@@ -23,9 +23,11 @@ def get_driver():
 
     driver = webdriver.Chrome(options=options, service=service)
     driver.get(target_url)
-    return driver
+    xpath_element = driver.find_element(by="xpath", value="/html/body/div[1]/div/h1[1]")
+    return xpath_element
 
 def main():
-    driver = get_driver()
+    xpath_element = get_driver()
+    return xpath_element.text
 
-main()
+print(main())
