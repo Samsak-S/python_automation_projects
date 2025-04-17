@@ -2,7 +2,6 @@ from pathlib import Path
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 
-
 def get_driver():
 
     file_path = Path('./chromedriver.exe').resolve()
