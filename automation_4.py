@@ -34,16 +34,15 @@ def get_driver():
     driver = webdriver.Chrome(chrome_options, chrome_service, True)
     driver.get(target_url)
 
-    with open("url_3.txt") as file:
-        url_1st = file.read().strip()
-
-    if driver.current_url == url_1st:
+    try:
         element = wait_for_element(driver, '//*[@id="otherTile"]').click()
-        print("Yes it is!")
+    except:
+        print("first page not found")
+
 
     element = wait_for_element(driver, '//*[@id="i0116"]').send_keys("Samsak.S@centrica.com" + Keys.ENTER)
-    #my_password = getpass.getpass("Enter your password:")
-    element = wait_for_element(driver, '//*[@id="i0118"]').send_keys("Samsmithkezia31!" + Keys.ENTER)
+    my_password = getpass.getpass("Enter your password:")
+    element = wait_for_element(driver, '//*[@id="i0118"]').send_keys(my_password+ Keys.ENTER)
     wait_for_element(driver, '//*[@id="signInAnotherWay"]').click()
     wait_for_element(driver, '//*[@id="idDiv_SAOTCS_Proofs"]/div[2]/div').click()
     my_pin = input("Enter your pin: ")
