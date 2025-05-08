@@ -75,7 +75,7 @@ def get_driver():
     shadow_8_host = shadow_7_root.find_element(By.CSS_SELECTOR, 'div > alerts-page')
     shadow_8_root = driver.execute_script("return arguments[0].shadowRoot", shadow_8_host)
 
-    parent = shadow_8_root.find_element(By.CSS_SELECTOR, 'div.tabulator-table')
+    parent = shadow_8_root.find_element(By.CSS_SELECTOR, 'div > div.grid-template > div > div > div.tabulator-tableholder > div')
 
     child = parent.find_element(By.XPATH, './div[1]')
     children = parent.find_elements(By.CSS_SELECTOR, 'div.tabulator-cell')
